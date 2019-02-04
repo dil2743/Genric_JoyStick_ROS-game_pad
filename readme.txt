@@ -4,11 +4,6 @@ This node publishes a "Joy" message, which contains the current state of each on
 Supported Hardware
 This node should work with any joystick that is supported by Linux.
 
-API Stability
-The ROS API of this node should be considered stable.
-
-Official Documentation
-
 Nodes
 joy_node.py 
 The joy_node provides a generic Linux joystick node.
@@ -24,19 +19,6 @@ type = string
 default = /dev/input/js0 
 Linux joystick device from which to read joystick events.
 
-~deadzone 
-type = double 
-default = 0.05 
-Amount by which the joystick has to move before it is considered to be off-center. This parameter is specified relative to an axis normalized between -1 and 1. Thus, 0.1 means that the joystick has to move 10% of the way to the edge of an axis's range before that axis will output a non-zero value. Linux does its own deadzone processing, so in many cases this value can be set to zero.
-
-~autorepeat_rate 
-type = double 
-default = 0.0 (disabled) 
-Rate in Hz at which a joystick that has a non-changing state will resend the previously sent message.
-
-~coalesce_interval 
-type = double 
-default = 0.001 
 Axis events that are received within coalesce_interval (seconds) of each other are sent out in a single ROS message. Since the kernel sends each axis motion as a separate event, coalescing greatly reduces the rate at which messages are sent. This option can also be used to limit the rate of outgoing messages. Button events are always sent out immediately to avoid missing button presses.
 
 Using this Package
@@ -47,3 +29,5 @@ In some cases, multiple joysticks may control a single robot. For example, a use
 Application
 Microsoft Xbox 360 Wireless Controller for Windows
 Table of index number of /joy.buttons:
+
+For more information visit http://wiki.ros.org/joy
